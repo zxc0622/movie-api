@@ -1,3 +1,23 @@
 这个就是一套接口依赖,接口都放在这个maven项目里面,其他项目来引用这个maven坐标即可
 
 顺便说一下，sql最好用工具执行,如果用命令行执可能会报错..
+
+
+总共有3个项目构成
+
+movie-api 只提供接口和普通的Javabean对象，所以跟service相关的接口和Javabean都放在这里
+movie-service 是实现了movie-api所定义的接口，以及里面还有对数据库的一些操作
+movie-web 是面向用户的，里面只有control调用了movie-service里面的service，具体的话可以看下网上一个demo
+
+https://blog.csdn.net/zhaojw_420/article/details/78401405
+
+如果看不太懂，到时有空的时候我跟你说下整个流程
+
+流程也不算难，就是现在的service接口全部都通过dubbo和zookeeper管理了，service的实现类放在dubbo上面
+然后web也是从dubbo上面获取这些服务，然后现在这种情况传输的对象都需要实现序列化,远程传输都是需要这样的,
+现在我也不是很懂,所以想通过这个项目来学习
+
+
+暂时涉及到的技术   ssm,zookeper ,dubbo, mysql 等
+
+到时还要搞个 movie-admin 就是用来给后台人员管理用的
