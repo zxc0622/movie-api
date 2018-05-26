@@ -17,6 +17,11 @@ https://blog.csdn.net/zhaojw_420/article/details/78401405
 然后web也是从dubbo上面获取这些服务，然后现在这种情况传输的对象都需要实现序列化,远程传输都是需要这样的,
 现在我也不是很懂,所以想通过这个项目来学习
 
+还有,tomcat我内置了,用maven的插件直接执行    mvn tomcat7:run    就可以把项目跑起来前提是要把zookpeer和movie-service跑起来先
+如果是用工具跑的话那直接用 tomcat7:run 就行了
+
+到时如果有开发的话,我们就按照正常流程来,复制分支,然后再开发
+
 
 暂时涉及到的技术   ssm,zookeper ,dubbo, mysql 等
 
