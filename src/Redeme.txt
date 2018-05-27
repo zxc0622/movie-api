@@ -9,6 +9,8 @@ movie-api 只提供接口和普通的Javabean对象，所以跟service相关的�
 movie-service 是实现了movie-api所定义的接口，以及里面还有对数据库的一些操作
 movie-web 是面向用户的，里面只有control调用了movie-service里面的service，具体的话可以看下网上一个demo
 
+movie-api是个jar包，其他两个都是war包，并需要依赖movie-api这个jar，这样做是把具体的实现隐藏了
+
 https://blog.csdn.net/zhaojw_420/article/details/78401405
 
 如果看不太懂，到时有空的时候我跟你说下整个流程
