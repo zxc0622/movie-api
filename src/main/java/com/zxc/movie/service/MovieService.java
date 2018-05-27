@@ -11,4 +11,7 @@ public interface MovieService{
 
     //获取一个电影的具体内容
     public Movie getById(Integer id);
+
+    //插入一个电影实例
+    public int insert(Movie movie);
 }
