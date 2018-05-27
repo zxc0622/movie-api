@@ -13,5 +13,5 @@ public interface MovieService{
     public Movie getById(Integer id);
 
     //插入一个电影实例
-    public int insert(Movie movie);
+    public int add(Movie movie);
 }
