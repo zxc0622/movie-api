@@ -21,7 +21,7 @@ public class Movie implements Serializable {
     private Integer id;
     //电影名称
     private String movieName;
-    //电影简介,不会太长,还是用String就行了
+    //电影简介
     private String movieDesc;
     //上映日期
     private LocalDate showDate;
