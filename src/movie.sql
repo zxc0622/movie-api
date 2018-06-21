@@ -11,6 +11,7 @@ create table movie(
     movie_url varchar(300) not null default  '' comment '已上映电影的观看地址',
     movie_photo varchar(100) not null default '' comment '图片地址,目前存了一张,后期会改进',
     keep_count int not null default 1 comment '电影收藏人数,默认为1人',
+    data_status tinyint not null default 1 comment '数据状态,现在 1为可用,2为废弃,后期可能会有其他状态,所以请直接到BaseEntity里面去看即可',
     create_date datetime not null default  '1900-01-01 00:00:00' comment '电影实体类创建时间',
     update_date datetime not null default  '1900-01-01 00:00:00' comment '电影实体类修改时间'
 ) engine = Innodb default charset = utf8 comment='电影表';

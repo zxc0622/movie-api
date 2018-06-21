@@ -10,7 +10,7 @@ import com.zxc.movie.common.BaseService;
 public interface MovieService{
 
     //获取一个电影的具体内容
-    public Movie getById(Integer id);
+    public Movie getById(Long id);
 
     //插入一个电影实例
     public int add(Movie movie);

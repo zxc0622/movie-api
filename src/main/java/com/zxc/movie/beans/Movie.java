@@ -1,5 +1,6 @@
 package com.zxc.movie.beans;
 
+import com.zxc.movie.common.BaseEntity;
 import com.zxc.movie.common.MovieStatus;
 
 import java.io.Serializable;
@@ -14,11 +15,9 @@ import java.util.UUID;
  * 所有实体类都需要实现可序列化接口,因为是基于dubbo传输的
  * movie对象实体类
  */
-public class Movie implements Serializable {
+public class Movie extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 2728628073791555195L;
-    //自增id
-    private Integer id;
     //电影名称
     private String movieName;
     //电影简介
@@ -35,18 +34,6 @@ public class Movie implements Serializable {
     private String photo;
     //收藏次数,最大值为2147483647,够了!!
     private Integer keepCount;
-    //电影实体类创建时间
-    private LocalDateTime createDate;
-    //电影实体类更新时间，每次操作肯定都是更新这个啦
-    private LocalDateTime updateDate = LocalDateTime.now();
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getMovieName() {
         return movieName;
@@ -112,24 +99,9 @@ public class Movie implements Serializable {
         this.keepCount = keepCount;
     }
 
-    public LocalDateTime getCreateDate() {
-        return createDate;
-    }
+    public Movie() {}
 
-    public void setCreateDate(LocalDateTime createDate) {
-        this.createDate = createDate;
-    }
-
-    public LocalDateTime getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(LocalDateTime updateDate) {
-        this.updateDate = updateDate;
-    }
-
-    public Movie(Integer id, String movieName, String movieDesc, LocalDate showDate, MovieStatus movieStatus, List<MovieType> movieTypes, String movieUrl, String photo, Integer keepCount, LocalDateTime createDate, LocalDateTime updateDate) {
-        this.id = id;
+    public Movie(String movieName, String movieDesc, LocalDate showDate, MovieStatus movieStatus, List<MovieType> movieTypes, String movieUrl, String photo, Integer keepCount) {
         this.movieName = movieName;
         this.movieDesc = movieDesc;
         this.showDate = showDate;
@@ -138,17 +110,12 @@ public class Movie implements Serializable {
         this.movieUrl = movieUrl;
         this.photo = photo;
         this.keepCount = keepCount;
-        this.createDate = createDate;
-        this.updateDate = updateDate;
     }
-
-    public Movie() {}
 
     @Override
     public String toString() {
         return "Movie{" +
-                "id=" + id +
-                ", movieName='" + movieName + '\'' +
+                "movieName='" + movieName + '\'' +
                 ", movieDesc='" + movieDesc + '\'' +
                 ", showDate=" + showDate +
                 ", movieStatus=" + movieStatus +
@@ -156,8 +123,6 @@ public class Movie implements Serializable {
                 ", movieUrl='" + movieUrl + '\'' +
                 ", photo='" + photo + '\'' +
                 ", keepCount=" + keepCount +
-                ", createDate=" + createDate +
-                ", updateDate=" + updateDate +
                 '}';
     }
 }
